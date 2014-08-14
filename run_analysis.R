@@ -42,6 +42,7 @@ colnames(all_selected_data) <- c("Activity", "Subject", as.character(features_se
 # for each activity and each subject. 
 melted_data <- melt(all_selected_data, id = c("Activity", "Subject"))
 clean_data <- dcast(melted_data, Activity + Subject ~ variable, mean)
+write.table(clean_data, file = "./clean_data.txt", row.names = FALSE)
 clean_data
 
 
